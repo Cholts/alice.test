@@ -2,15 +2,15 @@
 title: Alice's Adventures Book Series
 description: Explore the whimsical world of Alice in Wonderland and Through the Looking-Glass.
 
-# Base URL for Jekyll (important for GitHub Pages and Netlify)
-# If your site is at username.github.io/repo-name/ use /repo-name/
-# If your site is at custom-domain.com or username.github.io/ use /
-baseurl: "" # Keep this empty for Netlify unless you have a subdirectory install
+# Base URL for Jekyll (important for Netlify)
+baseurl: "" # Keep this empty for Netlify unless you use a custom domain with a subdirectory
 
-# Where things are
+# Where things are built
 permalink: /books/:title/ # Creates URLs like /books/alice-in-wonderland/
 source: .
 destination: _site
+
+# Jekyll Plugins
 plugins:
     - jekyll-feed
     - jekyll-sitemap
@@ -18,7 +18,7 @@ plugins:
 # Collections (for our books managed by Decap CMS)
 collections:
     books:
-        output: true # This makes Jekyll generate separate pages for each book
+        output: true # This tells Jekyll to create a separate HTML page for each book entry
 
 # Defaults for collections (makes it easier to manage book details)
 defaults:
@@ -26,6 +26,4 @@ defaults:
     path: ""
     type: "books" # Apply these defaults to our 'books' collection
   values:
-    layout: "book" # Use the 'book' layout for all book pages
-    # cover_image: "/images/default-cover.jpg" # Optional default cover
-    # pdf_file: "/pdfs/default-book.pdf" # Optional default PDF
+    layout: "book" # Use the 'book' layout (template) for all book pages
