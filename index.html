@@ -1,0 +1,20 @@
+---
+layout: default # This page will use the _layouts/default.html template
+title: Homepage # This sets the page title that Jekyll will use
+---
+
+<div class="container">
+    <h1>Explore the Whimsical World of Alice</h1>
+    <p>Dive into the fantastical journeys of Alice in Wonderland and Through the Looking-Glass. A timeless classic brought to life through beautiful editions and fascinating insights.</p>
+
+    <div class="book-list">
+        {% for book in site.books %} {# Jekyll loop: displays each item in the 'books' collection #}
+        <div class="book-card">
+            <img src="{{ book.cover_image | relative_url }}" alt="{{ book.title }} Cover">
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.description | truncatewords: 25 }}</p> {# Truncates the description for display #}
+            <a href="{{ book.url | relative_url }}" class="button">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
