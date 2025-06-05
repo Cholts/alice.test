@@ -2,8 +2,7 @@
 title: Alice's Adventures Book Series
 description: Explore the whimsical world of Alice in Wonderland and Through the Looking-Glass.
 
-# Base URL for Jekyll (important for Netlify)
-baseurl: "" # Keep this empty for Netlify unless you use a custom domain with a subdirectory
+baseurl: "/alice.test" # IMPORTANT for GitHub Pages Project sites! This is your repository name.
 
 # Where things are built
 permalink: /books/:title/ # Creates URLs like /books/alice-in-wonderland/
