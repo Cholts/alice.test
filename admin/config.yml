@@ -1,0 +1,22 @@
+backend:
+  name: git-gateway
+  branch: main # IMPORTANT: This must match your GitHub repository's main branch name (usually 'main' or 'master').
+
+publish_mode: editorial_workflow # Allows you to save drafts before publishing
+
+media_folder: "images" # Folder where uploaded images will be stored
+public_folder: "/images" # The folder on the live site where images will be served from
+
+collections:
+  - name: "books" # A unique identifier for this content collection
+    label: "Books" # How this collection will appear in the Decap CMS UI
+    folder: "_books" # The folder where content files (Markdown) for books will be stored
+    create: true # Allow users to create new book entries
+    slug: "{{slug}}" # Creates a filename from the title (e.g., 'alice-in-wonderland.md')
+    fields: # Define the fields (input boxes) for each book entry in the CMS
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Cover Image", name: "cover_image", widget: "image", required: true, media_folder: "images", public_folder: "/images", hint: "Upload the book cover image here."}
+      - {label: "PDF File", name: "pdf_file", widget: "file", required: false, media_folder: "pdfs", public_folder: "/pdfs", hint: "Upload the full PDF file for the book."}
+      - {label: "Wikipedia Link (Optional)", name: "wikipedia_link", widget: "string", required: false, hint: "A link to the book's Wikipedia page or other external resource."}
+      - {label: "Short Description", name: "description", widget: "text", required: false, hint: "A brief summary for the homepage."}
+      - {label: "Full Content", name: "body", widget: "markdown", required: true, hint: "The main content/synopsis of the book (supports Markdown for formatting)."}
